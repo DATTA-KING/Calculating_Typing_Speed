@@ -39,7 +39,7 @@ This project is ideal for beginners who want to build a real-world web applicati
 
 ## 📸 Screenshots
 
->![img alt]()
+>![img alt](https://github.com/DATTA-KING/Calculating_Typing_Speed/blob/563918e38e1a81d0b3ff7bf7efeb5f12dd242ccc/Output%20Img/Screenshot%20Typing.png)
 >![img alt]()
 >![img alt]()
 
