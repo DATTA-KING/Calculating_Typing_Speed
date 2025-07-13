@@ -41,10 +41,19 @@ This project is ideal for beginners who want to build a real-world web applicati
 
 >![img alt](https://github.com/DATTA-KING/Calculating_Typing_Speed/blob/563918e38e1a81d0b3ff7bf7efeb5f12dd242ccc/Output%20Img/Screenshot%20Typing.png)
 >![img alt](https://github.com/DATTA-KING/Calculating_Typing_Speed/blob/cf0fb26506f50f61ec327e5b26affc12936c873f/Output%20Img/Screenshot%20Typing_Speed.png)
->![img alt]()
+>![img alt](https://github.com/DATTA-KING/Calculating_Typing_Speed/blob/f62d601bd11516818684c97c2eabecd28421f3e4/Output%20Img/Screenshot%20Typing_Output.png)
+
+---
 
 🧪 Keyboard Shortcuts
 
 .Ctrl + Enter: Start Test
 
 .Esc: Reset Test
+
+---
+
+✅ Conclusion
+
+SpeedType is an intuitive, engaging, and fun way to practice typing while also learning how to build a performance-focused, interactive frontend web app. It’s a great project for beginners looking to enhance their skills in HTML, CSS, and JavaScript by building something practical and polished.
+
