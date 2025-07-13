@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeedType - Typing Speed Test</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#667eea">
+    <meta name="description" content="Test your typing speed with real-time feedback, WPM calculation, and accuracy tracking.">
+    <meta name="keywords" content="typing test, speed test, WPM, words per minute, typing practice">
+    <meta name="author" content="SpeedType App">
+    
+    <!-- Open Graph tags for social media -->
+    <meta property="og:title" content="SpeedType - Typing Speed Test">
+    <meta property="og:description" content="Test your typing speed with real-time feedback, WPM calculation, and accuracy tracking.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://speedtype.com">
+    <meta property="og:image" content="https://speedtype.com/og-image.png">
+    
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SpeedType - Typing Speed Test">
+    <meta name="twitter:description" content="Test your typing speed with real-time feedback, WPM calculation, and accuracy tracking.">
+    <meta name="twitter:image" content="https://speedtype.com/twitter-image.png">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-keyboard"></i>
+                <h1>SpeedType</h1>
+            </div>
+            <nav class="nav">
+                <button class="nav-btn active" data-mode="test">Test</button>
+                <button class="nav-btn" data-mode="practice">Practice</button>
+                <button class="nav-btn" data-mode="results">Results</button>
+            </nav>
+        </header>
+
+        <main class="main">
+            <!-- Test Configuration Section -->
+            <section class="config-section">
+                <div class="config-options">
+                    <div class="config-group">
+                        <label for="test-duration">Test Duration:</label>
+                        <select id="test-duration">
+                            <option value="15">15 seconds</option>
+                            <option value="30">30 seconds</option>
+                            <option value="60" selected>1 minute</option>
+                            <option value="120">2 minutes</option>
+                            <option value="300">5 minutes</option>
+                        </select>
+                    </div>
+                    <div class="config-group">
+                        <label for="difficulty">Difficulty:</label>
+                        <select id="difficulty">
+                            <option value="easy">Easy</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                    <div class="config-group">
+                        <button id="generate-text" class="btn-secondary">
+                            <i class="fas fa-sync-alt"></i>
+                            New Text
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Test Section -->
+            <section class="test-section">
+                <div class="test-info">
+                    <div class="info-item">
+                        <span class="info-label">Time:</span>
+                        <span id="timer" class="info-value">60</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">WPM:</span>
+                        <span id="wpm" class="info-value">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Accuracy:</span>
+                        <span id="accuracy" class="info-value">100%</span>
+                    </div>
+                </div>
+
+                <div class="text-display" id="text-display">
+                    <div class="text-content" id="text-content">
+                        <!-- Dynamic text will be inserted here -->
+                    </div>
+                </div>
+
+                <div class="input-section">
+                    <textarea 
+                        id="typing-input" 
+                        placeholder="Click here and start typing..."
+                        disabled
+                        rows="4"
+                        autocomplete="off"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        spellcheck="false"
+                    ></textarea>
+                    <div class="input-controls">
+                        <button id="start-test" class="btn-primary">
+                            <i class="fas fa-play"></i>
+                            Start Test
+                        </button>
+                        <button id="reset-test" class="btn-secondary">
+                            <i class="fas fa-redo"></i>
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="results-section" style="display: none;">
+                <div class="results-container">
+                    <h2>Test Results</h2>
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <div class="result-icon">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            <div class="result-content">
+                                <h3>Words Per Minute</h3>
+                                <p id="final-wpm" class="result-value">0</p>
+                            </div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <div class="result-content">
+                                <h3>Accuracy</h3>
+                                <p id="final-accuracy" class="result-value">0%</p>
+                            </div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="result-content">
+                                <h3>Time Taken</h3>
+                                <p id="final-time" class="result-value">0s</p>
+                            </div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-icon">
+                                <i class="fas fa-keyboard"></i>
+                            </div>
+                            <div class="result-content">
+                                <h3>Characters Typed</h3>
+                                <p id="final-chars" class="result-value">0</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="results-actions">
+                        <button id="try-again" class="btn-primary">
+                            <i class="fas fa-play"></i>
+                            Try Again
+                        </button>
+                        <button id="share-results" class="btn-secondary">
+                            <i class="fas fa-share"></i>
+                            Share Results
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 SpeedType. Built with HTML, CSS, and JavaScript.</p>
+        </footer>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loading-spinner" style="display: none;">
+        <div class="spinner"></div>
+        <p>Loading new text...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
