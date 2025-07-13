@@ -47,9 +47,9 @@ This project is ideal for beginners who want to build a real-world web applicati
 
 🧪 Keyboard Shortcuts
 
-.Ctrl + Enter: Start Test
+. Ctrl + Enter: Start Test
 
-.Esc: Reset Test
+. Esc: Reset Test
 
 ---
 
